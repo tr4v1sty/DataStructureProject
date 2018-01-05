@@ -15,6 +15,9 @@ public class MyHashApp {
 		myHT.insertion("John", "Doe", "jdoe@somedomain.com " , "555-235-1119");
 		myHT.insertion("Jane", "Doe", "jdoe@somedomain.com " , "555-235-1120");
 		myHT.lookup("Pat", "Jones");
+		myHT.lookup("Jane", "Williams");
+		myHT.lookup("Mohammed", "al-Salam");
+		myHT.lookup("Billy", "Kid");
 		myHT.insertion("Test", "Case", "Test_Case@testcase.com" , "555-235-1121");
 		myHT.insertion("Nadezhda", "Kanachekhovskaya", "dr.nadezhda.kanacheckovskaya@somehospital.moscow.ci.ru" , "555-235-1122");
 		myHT.insertion("Jo", "Wu", "wu@h.com" , "555-235-1123");
