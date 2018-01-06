@@ -7,10 +7,8 @@ public class MyHashTable {
 	 
 	 MyHashTable() {
 		 table = new MyHashNode[NUMBUCKET];
-		 
 		 for (int x = 0; x <table.length;x++) {
 			 table[x] = null;
-//			 System.out.println(x);
 		 }	 
 	 }
 	 
@@ -45,54 +43,85 @@ public class MyHashTable {
 		 }
 	 }
 	 
-	 public void printAll() {
-		 for (MyHashNode x : table){
-			 if(x != null) {
-				 System.out.println(x.getFirstName());
+	 public void deletion(String first, String last) {
+		 try {
+			 MyHashNode nodeToDelete = lookup(first, last);
+			 String firstAndLast = nodeToDelete.getFirstAndLast().toUpperCase();
+			 int hash = Math.abs(firstAndLast.hashCode());
+			 
+			 if (table[hash%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 table[hash%table.length] = null;
+				 System.out.println("and the Deletion was successful for " + firstAndLast);
+			 }else if (table[(hash+1)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 table[(hash+1)%table.length] = null;
+				 System.out.println("and the Deletion was successful for " + firstAndLast);
+			 }else if (table[(hash+2)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 table[(hash+2)%table.length] = null;
+				 System.out.println("and the Deletion was successful for " + firstAndLast);
+			 }else if (table[(hash+3)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 table[(hash+3)%table.length] = null;
+				 System.out.println("and the Deletion was successful for " + firstAndLast);
+			 }else if (table[(hash+4)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 table[(hash+4)%table.length] = null;
+				 System.out.println("and the Deletion was successful for " + firstAndLast);
+			 }else if (table[(hash+5)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 table[(hash+5)%table.length] = null;
+				 System.out.println("and the Deletion was successful for " + firstAndLast);
+			 }else if (table[(hash+6)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 table[(hash+6)%table.length] = null;
+				 System.out.println("and the Deletion was successful for " + firstAndLast);
 			 }
+		 }catch (NullPointerException e) {
+			 System.out.println("Deletion UNSUCCESSFUL for " + first.concat(last).toUpperCase());
 		 }
 	 }
 	 
-//	 public void deletion(String first, String last) {
-//		 lookup
-//	 }
-//	 
+	 
+	 
 	 public MyHashNode lookup(String first, String last) {
 		 String firstAndLast = first.toUpperCase().concat(last.toUpperCase());
 		 int hash = Math.abs((firstAndLast).hashCode());
-		 if(table[hash%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("1Lookup successful for " + table[hash%table.length].getFirstAndLast());
-			 return table[hash%table.length];
-		 }else if (table[(hash+1)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("2Lookup successful for " + table[(hash+1)%table.length].getFirstAndLast());
-			 return table[(hash+1)%table.length];
-		 }else if (table[(hash+2)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("3Lookup successful for " + table[(hash+2)%table.length].getFirstAndLast());
-			 return table[(hash+2)%table.length];
-		 }else if (table[(hash+3)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("4Lookup successful for " + table[(hash+3)%table.length].getFirstAndLast());
-			 return table[(hash+3)%table.length];
-		 }else if (table[(hash+4)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("5Lookup successful for " + table[(hash+4)%table.length].getFirstAndLast());
-			 return table[(hash+4)%table.length];
-		 }else if (table[(hash+5)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("6Lookup successful for " + table[(hash+5)%table.length].getFirstAndLast());
-			 return table[(hash+5)%table.length];
-		 }else if (table[(hash+6)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("7Lookup successful for " + table[(hash+6)%table.length].getFirstAndLast());
-			 return table[(hash+6)%table.length];
-		 }else if (table[(hash+7)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("8Lookup successful for " + table[(hash+7)%table.length].getFirstAndLast());
-			 return table[(hash+7)%table.length];
-		 }else if (table[(hash+8)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
-			 System.out.println("9Lookup successful for " + table[(hash+8)%table.length].getFirstAndLast());
-			 return table[(hash+8)%table.length];
-		 }else {
-			 System.out.println("shit");
-			 return null;
-		 }
-	 }
 		 
+		 try {
+			 if(table[hash%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 System.out.println("Lookup successful for " + table[hash%table.length].getFirstAndLast().toUpperCase());
+				 return table[hash%table.length];
+			 }else if (table[(hash+1)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 System.out.println("Lookup successful for " + table[(hash+1)%table.length].getFirstAndLast().toUpperCase());
+				 return table[(hash+1)%table.length];
+			 }else if (table[(hash+2)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 System.out.println("Lookup successful for " + table[(hash+2)%table.length].getFirstAndLast().toUpperCase());
+				 return table[(hash+2)%table.length];
+			 }else if (table[(hash+3)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 System.out.println("Lookup successful for " + table[(hash+3)%table.length].getFirstAndLast().toUpperCase());
+				 return table[(hash+3)%table.length];
+			 }else if (table[(hash+4)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 System.out.println("Lookup successful for " + table[(hash+4)%table.length].getFirstAndLast().toUpperCase());
+				 return table[(hash+4)%table.length];
+			 }else if (table[(hash+5)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 System.out.println("Lookup successful for " + table[(hash+5)%table.length].getFirstAndLast().toUpperCase());
+				 return table[(hash+5)%table.length];
+			 }else if (table[(hash+6)%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
+				 System.out.println("Lookup successful for " + table[(hash+6)%table.length].getFirstAndLast().toUpperCase());
+				 return table[(hash+6)%table.length];
+			 }else {
+				 return null;
+			 }
+		 }catch (NullPointerException e) {
+			 System.out.println("Lookup UNSUCCESSFUL for "+firstAndLast);
+		 }
+//		 System.out.println("Lookup UNSUCCESSFUL for "+firstAndLast);
+		 return null;
+	 }
+	 
+	 	 public void printAll() {
+		 		 for (MyHashNode x : table){
+		 			 if(x != null) {
+		 				 System.out.println(x.getFirstName());
+		 			 }
+		 		 }
+		 	 }
+	 	 
 }
 
 
