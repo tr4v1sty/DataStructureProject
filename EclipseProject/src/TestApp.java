@@ -4,7 +4,6 @@ public class TestApp {
 	public static void main(String[] args) {
 
 		TreeStructure myTS = new TreeStructure();
-		
 		myTS.insert("Bob","Johnson");
 		myTS.insert("Jack","Tarik");
 		myTS.insert("Stewie","TwoKay");
@@ -15,9 +14,6 @@ public class TestApp {
 		myTS.lookup("Bob","Johnson");
 		myTS.lookup("Stewie","TwoKay");
 		myTS.lookup("Ethan","Klien");
-		
-		
-		
 		
 //		MyHashTable myHT = new MyHashTable();
 //		myHT.insertion("Bob", "Smith", "bsmith@somewhere.com" , "555-235-1111");
@@ -46,7 +42,6 @@ public class TestApp {
 //		myHT.lookup("Jill", "Jones");
 //		myHT.lookup("John", "Doe");
 
-		
 	}
 
 }
