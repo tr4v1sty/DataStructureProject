@@ -4,7 +4,7 @@ public class MyHashNode {
 	private String lastName;
 	private String emailAddress;
 	private String phoneNumber;
-	
+	//tt - constructor for the node
 	public MyHashNode (String firstName, String lastName, 
 			String emailAddress, String phoneNumber){
 		this.firstName = firstName;
@@ -12,7 +12,7 @@ public class MyHashNode {
 		this.emailAddress = emailAddress;
 		this.phoneNumber = phoneNumber;
 	}
-	
+	//tt - getters and setters
 	public String getFirstAndLast() {
 		return firstName.concat(lastName);
 	}

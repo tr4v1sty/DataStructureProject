@@ -3,6 +3,8 @@ public class MyHashTable {
 	 private final static int NUMBUCKET = 13;
 	 MyHashNode[] table;
 	 
+	 
+	//tt - constructor for the hash table
 	 MyHashTable() {
 		 table = new MyHashNode[NUMBUCKET];
 		 for (int x = 0; x <table.length;x++) {
@@ -10,16 +12,16 @@ public class MyHashTable {
 		 }	 
 	 }
 	 
+	//tt - insertion function with collision detection
 	 public void insertion(String first, String last, 
 				String email, String phone) {
-		 
 		 String firstAndLast = first.toUpperCase().concat(last.toUpperCase());
 		 int hash = Math.abs((firstAndLast).hashCode());
 		 
 		 if(table[hash%table.length] == null) {
 			 table[hash%table.length] = new MyHashNode(first, last, email, phone);			 
 		 }
-		 //Collision detection and resolution
+		 //tt - Collision detection and resolution
 		 else if (table[hash%table.length] != null){
 			 if (table[0] == null) {
 				 table[0] = new MyHashNode(first, last, email, phone);
@@ -32,11 +34,12 @@ public class MyHashTable {
 			 }
 		 }
 	 }
-	 
+	//tt - deletion function.
 	 public void deletion(String first, String last) {
 		 try {
 			 MyHashNode nodeToDelete = lookup(first, last);
 			 String firstAndLast = nodeToDelete.getFirstAndLast().toUpperCase();
+			//tt - gets rid of the negative number from hashCode()
 			 int hash = Math.abs(firstAndLast.hashCode());
 			 
 			 if (table[hash%table.length].getFirstAndLast().toUpperCase().compareTo(firstAndLast) == 0 ) {
@@ -56,7 +59,7 @@ public class MyHashTable {
 			 System.out.println("Deletion UNSUCCESSFUL for " + first.concat(last).toUpperCase());
 		 }
 	 }
-	 
+	//tt - lookup function. will search nodes to the right of it 4 times if not found originally
 	 public MyHashNode lookup(String first, String last) {
 		 String firstAndLast = first.toUpperCase().concat(last.toUpperCase());
 		 int hash = Math.abs((firstAndLast).hashCode());
@@ -82,7 +85,7 @@ public class MyHashTable {
 		 }
 		 return null;
 	 }
-	 
+	//tt - prints all Nodes in the table. used for testing only
 	 public void printAll() {
  		 for (MyHashNode x : table){
  			 if(x != null) {
